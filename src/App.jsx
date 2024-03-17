@@ -110,9 +110,9 @@ function App() {
           
             </div>
             <div className='cart-container'>
-                <h1 className='title text-center text-xl'>Want to cook <span>{}</span> </h1>
+                <h1 className='title text-center text-xl'>Want to cook <span></span> </h1>
                 <hr />
-                <div className='cart-title'>
+                <div className="cart-title text-left text-xl text-gray-400">
                   
                   <h5>
                     Name
@@ -126,9 +126,9 @@ function App() {
                 <div className="cart-info">
                   {
                     cart.map((item,index) =>(
-                      <div className="cart-info2">
+                      <div className="cart-info2 text-left text-xs">
                         <p>{index+1}</p>
-                      <h5>{item.recipe_name.slice(0,10)}</h5>
+                      <h5>{item.recipe_name}</h5>
                       <h5>{item.preparing_time}</h5>
                       <h5>{item.calories}</h5>
                       
@@ -139,6 +139,22 @@ function App() {
                     ))
                   }
                 </div>
+                  
+
+                  {/* Currently Cooking */}
+                  <div className="cooking-card">
+                  <h1 className='title text-center text-xl'>Currently Cooking <span></span> </h1>
+                  <hr />
+                  <div className='cart-title'>
+                  <h5>
+                    Name
+                  </h5>
+                  <h5>
+                    Time
+                  </h5>
+                  <h5>Calories</h5>
+                  </div>
+                  </div>
 
             </div>
           </div>
