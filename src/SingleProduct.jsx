@@ -3,7 +3,7 @@ import React from 'react';
 const SingleProduct = ({product, handleCart }) => {
     console.log(handleCart);
     return (
-        <div>
+        <div className='container mx-auto'>
             <div class="card w-96 bg-base-100 shadow-xl text-start ">
                 <figure class="px-10 pt-10">
                 <img src={product.recipe_image} alt="Shoes" class="rounded-xl" />

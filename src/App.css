@@ -1,19 +1,18 @@
 .main-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding-left: 2px;
 }
 
 .cart-container{
-  width: 300px;
-  margin-left: 10px;
-  
+  margin: 2px;
   box-shadow: 4px 4px 8px gray;
 }
 
 .cards-container{
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two columns */
-  grid-gap: 20px; 
+  grid-gap: 5px; 
   
 }
 

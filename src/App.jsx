@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 
 import './App.css'
 import SingleProduct from './SingleProduct';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const [products, setProducts]=useState([]);
+  const [cart,setCart]=useState([]);
 
 
   useEffect(()=>{
@@ -13,16 +15,23 @@ function App() {
     .then(data => setProducts(data));
   },[]);
   const handleCart =(p) =>{
-    console.log(p);
+      
+      const isExits=cart.find((pd)=> pd.recipe_id==p.recipe_id);
+      if(!isExits){
+        setCart([...cart,p])
+      }
+      else{
+        alert("Already Exist");
+      }
   }
 
   return (
     <>
       
-      <div className='main-container1 mx-auto container'>
+      <div className='main-container1'>
 
         {/* NavBar start */}
-          <div className='navbar-Container mx-auto container'>
+          <div className='container mx-auto'>
           <div class="navbar bg-base-100">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">daisyUI</a>
@@ -65,7 +74,7 @@ function App() {
           {/* Navbar ends */}
 
           {/* Banner start */}
-          <div className='Banner-section mx-auto container'>
+          <div className='Banner-section container mx-auto'>
           <div class="hero min-h-screen bg-base-200">
   <div class="hero-content text-center">
     <div class="max-w-md">
@@ -80,7 +89,7 @@ function App() {
           {/* Banner section ends */}
 
           {/* Main Body start */}
-          <div className='main-container2'>
+          <div className='main-container2 container mx-auto'>
           <h2 className='Body-headings text-center font-extrabold'>Our Recipes</h2>
           <p className='body-text text-center'>Have a look to all of our Recipes & chose your's fav one. <br></br> We are always at your service </p>
 
@@ -95,13 +104,18 @@ function App() {
           
             </div>
             <div className='cart-container'>
+                <h1>Want to cook</h1>
+                <hr />
                 <div className='cart-title'>
+                  
                   <h5>
                     Name
                   </h5>
                   <h5>
-                    Price
+                    Time
                   </h5>
+                  <h5>Calories</h5>
+                  <button className="btn bg-green-500 border rounded-full">Preparing</button>
                 </div>
             </div>
           </div>
