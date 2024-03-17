@@ -6,6 +6,7 @@
 
 .cart-container{
   margin: 2px;
+  padding: 10px;
   box-shadow: 4px 4px 8px gray;
 }
 
@@ -19,4 +20,15 @@
 .cart-title{
   display: flex;
   justify-content: space-around;
+  gap: 5px;
+}
+
+.cart-info2{
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+
+}
+.cart-info{
+  gap: 15px;
 }

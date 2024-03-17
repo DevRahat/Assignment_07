@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   const [products, setProducts]=useState([]);
   const [cart,setCart]=useState([]);
+  const [card,setCard]=useState([]);
 
 
   useEffect(()=>{
@@ -24,6 +25,11 @@ function App() {
         alert("Already Exist");
       }
   }
+
+  // const handleCard=(c) =>{
+  //   setCard([c]);
+  // }
+  // console.log(card);
 
   return (
     <>
@@ -104,7 +110,7 @@ function App() {
           
             </div>
             <div className='cart-container'>
-                <h1>Want to cook</h1>
+                <h1 className='title text-center text-xl'>Want to cook <span>{}</span> </h1>
                 <hr />
                 <div className='cart-title'>
                   
@@ -115,8 +121,25 @@ function App() {
                     Time
                   </h5>
                   <h5>Calories</h5>
-                  <button className="btn bg-green-500 border rounded-full">Preparing</button>
+                
                 </div>
+                <div className="cart-info">
+                  {
+                    cart.map((item,index) =>(
+                      <div className="cart-info2">
+                        <p>{index+1}</p>
+                      <h5>{item.recipe_name.slice(0,10)}</h5>
+                      <h5>{item.preparing_time}</h5>
+                      <h5>{item.calories}</h5>
+                      
+                      <button className="btn bg-green-500 border rounded-full">Preparing</button>
+                      
+                      
+                      </div>
+                    ))
+                  }
+                </div>
+
             </div>
           </div>
           
