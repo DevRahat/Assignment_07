@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import './App.css'
 import SingleProduct from './SingleProduct';
-import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   const [products, setProducts]=useState([]);
@@ -26,10 +26,10 @@ function App() {
       }
   }
 
-  // const handleCard=(c) =>{
-  //   setCard([c]);
-  // }
-  // console.log(card);
+  const handleCard=(c) =>{
+    setCard([c]);
+  }
+  console.log(card);
 
   return (
     <>
@@ -132,7 +132,7 @@ function App() {
                       <h5>{item.preparing_time}</h5>
                       <h5>{item.calories}</h5>
                       
-                      <button className="btn bg-green-500 border rounded-full">Preparing</button>
+                      <button onClick={handleCard} className="btn bg-green-500 border rounded-full">Preparing</button>
                       
                       
                       </div>
@@ -154,6 +154,17 @@ function App() {
                   </h5>
                   <h5>Calories</h5>
                   </div>
+                    {
+                      card.map((info,index)=>(
+                        <div className="cart-info2 text-left text-xs">
+                        <p>{index+1}</p>
+                      <h5>{info.recipe_name}</h5>
+                      <h5>{info.preparing_time}</h5>
+                      <h5>{info.calories}</h5>
+                      </div>
+                      ))
+                    }
+
                   </div>
 
             </div>
